@@ -53,7 +53,7 @@ package src_telas.itens_deskTop
 			posX_btn = 12;
 			//popups
 			popupFundos = new PopupFundos(pagina);
-			popupItem = new PopupItem();
+			popupItem = new PopupItem(pagina);
 			popupPersonagem = new PopupPersonagem();
 			popupBalao = new PopupBalao();
 			popupEfeito = new PopupEfeito();

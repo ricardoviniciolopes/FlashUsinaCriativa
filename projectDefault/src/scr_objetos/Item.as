@@ -21,6 +21,7 @@ package scr_objetos
 		private var quadroObjeto:Image;
 		private var X:Number;
 		private var Y:Number;
+		public var imagem:Image;
 		//
 		public function Item() 
 		{
@@ -42,14 +43,14 @@ package scr_objetos
 			icone_indiceUp = new Image(Assets.getTexture("edicao_btn_camada_frente"));
 			icone_indiceDown = new Image(Assets.getTexture("edicao_btn_camada_tras"));
 			//--------------
-			
-			//defineCentroMeio(quadroObjeto);
+			imagem = new Image(Assets.getTexture("btn_novo"));
+			defineCentroMeio(imagem);
 			defineCentroMeio(icone_scale); /*---*/ defineCentroMeio(icone_rotation);
 			defineCentroMeio(icone_giraD); /*---*/ defineCentroMeio(icone_giraE);
 			defineCentroMeio(icone_indiceUp); /*---*/ defineCentroMeio(icone_indiceDown);
 			//-------------------------
 			addChild(quadroObjeto);
-			
+			addChild(imagem);
 			addChild(icone_scale); /*---*/ addChild(icone_rotation);
 			addChild(icone_giraD); /*---*/ addChild(icone_giraE);
 			addChild(icone_indiceUp); /*---*/ addChild(icone_indiceDown);
@@ -66,6 +67,7 @@ package scr_objetos
 		// define posicao dos icones
 		private function definePosicao():void
 		{
+			imagem.x = quadroObjeto.width / 2; /**/ imagem.y = quadroObjeto.height / 2;
 			icone_scale.x = quadroObjeto.width; /*--*/ icone_scale.y = quadroObjeto.height - quadroObjeto.height;
 			icone_rotation.x = quadroObjeto.width - quadroObjeto.width; /*--*/ icone_rotation.y = quadroObjeto.height - quadroObjeto.height;
 			icone_giraE.x = quadroObjeto.width - quadroObjeto.width; /*--*/ icone_giraE.y = quadroObjeto.height / 2;
@@ -79,6 +81,12 @@ package scr_objetos
 		{
 			icone_scale.addEventListener(TouchEvent.TOUCH, mudaScale);
 			icone_rotation.addEventListener(TouchEvent.TOUCH, mudaRotacao);
+			quadroObjeto.addEventListener(TouchEvent.TOUCH, moveItem);
+		}
+		// movimenta o personagem
+		private function moveItem(e:TouchEvent):void 
+		{
+			
 		}
 		//muda a escala do objeto
 		private function mudaScale(e:TouchEvent):void 
@@ -92,8 +100,8 @@ package scr_objetos
 				}
 				if(_toque.phase == TouchPhase.MOVED) 
 				{
-					if (X < _toque.globalX) { quadroObjeto.scaleX += .01; /**/ quadroObjeto.scaleY += .01; }
-					else if (X > _toque.globalX) { quadroObjeto.scaleX -= .01; /**/ quadroObjeto.scaleY -= .01; }
+					if (X < _toque.globalX) { quadroObjeto.scaleX += .01; /**/ quadroObjeto.scaleY += .01; /**/ imagem.scaleX += .01; /**/ imagem.scaleY += .01; }
+					else if (X > _toque.globalX) { quadroObjeto.scaleX -= .01; /**/ quadroObjeto.scaleY -= .01;/**/ imagem.scaleX -= .01; /**/ imagem.scaleY -= .01; }
 					X = _toque.globalX; /**/ Y = _toque.globalY;
 					definePosicao();
 				}
@@ -111,14 +119,13 @@ package scr_objetos
 				}
 				if(_toque.phase == TouchPhase.MOVED) 
 				{
-					if (X < _toque.globalX) { this.rotation += .01;}
-					else if (X > _toque.globalX) { this.rotation += .01; }
+					if (X < _toque.globalX) { imagem.rotation += .05;}
+					else if (X > _toque.globalX) { imagem.rotation -= .05; }
 					X = _toque.globalX; /**/ Y = _toque.globalY;
-					definePosicao();
+					
 				}
 			}
 		}
-		
 		
 	}
 

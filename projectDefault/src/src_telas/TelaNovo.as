@@ -29,10 +29,6 @@ package src_telas
 			//----------
 			initValores();
 			definePosicao();
-			var teste:Item = new Item();
-			addChild(teste);
-			teste.x = 200;
-			teste.y = 200;
 		}
 		
 		private function initValores():void 

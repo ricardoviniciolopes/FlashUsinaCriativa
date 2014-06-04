@@ -21,8 +21,8 @@ package src_telas.itens_deskTop.Itens_menu_esquerdo
 		private var fundo:Image;
 		private var btn_setaD:Button;
 		private var btn_setaE:Button;
-		private var quadro:Vector.<Image>;
 		private var thumb:Vector.<Image>;
+		private var quadro:Vector.<Image>;
 		public var pagina:Vector.<Pagina>;
 		
 		public function PopupFundos(_pagina:Vector.<Pagina>) 
