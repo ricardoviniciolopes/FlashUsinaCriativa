@@ -50,6 +50,7 @@ package src_telas
 				pagina[a].alpha = 0;
 			}
 			pagina[ControleGeral.currentPagina].alpha = 1;
+		
 			zeraQuadroSelecionado();
 			
 		}

@@ -81,13 +81,24 @@ package scr_objetos
 		{
 			icone_scale.addEventListener(TouchEvent.TOUCH, mudaScale);
 			icone_rotation.addEventListener(TouchEvent.TOUCH, mudaRotacao);
-			quadroObjeto.addEventListener(TouchEvent.TOUCH, moveItem);
+			this.addEventListener(TouchEvent.TOUCH, moveItem);
 		}
+		
 		// movimenta o personagem
 		private function moveItem(e:TouchEvent):void 
 		{
-			
+			var _toque:Touch = e.getTouch((e.currentTarget) as Image );
+			if(_toque)
+			{
+				if(_toque.phase == TouchPhase.MOVED) 
+				{
+					trace("!-------------------------!");
+					quadroObjeto.x = _toque.globalX;
+					quadroObjeto.y = _toque.globalY;
+				}
+			}
 		}
+		
 		//muda a escala do objeto
 		private function mudaScale(e:TouchEvent):void 
 		{

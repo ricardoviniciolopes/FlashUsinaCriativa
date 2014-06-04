@@ -83,6 +83,8 @@ package src_telas.itens_deskTop.Itens_menu_esquerdo
 				if(_toque.phase == TouchPhase.BEGAN) 
 				{
 					var item:Item = new Item();
+					item.x = 300;
+					item.y = 300;
 					pagina[ControleGeral.currentPagina].quadro[ControleGeral.currentQuadro].addChild(item);
 				}
 			}
