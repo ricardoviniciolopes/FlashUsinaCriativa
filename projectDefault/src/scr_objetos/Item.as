@@ -60,16 +60,14 @@ package scr_objetos
 			icone_indiceDown = new Image(Assets.getTexture("edicao_btn_camada_tras"));
 			//--------------
 			imagem = new Image(Assets.getTexture("sapo"));
-			//imagem.scaleX = .5;
-			//imagem.scaleY = .5;
+
 			defineCentroMeio(imagem);
-			quadroObjeto.alpha = 0;
 			defineCentroMeio(quadroObjeto);
 			defineCentroMeio(icone_scale); /*---*/ defineCentroMeio(icone_rotation);
 			defineCentroMeio(icone_giraD); /*---*/ defineCentroMeio(icone_giraE);
 			defineCentroMeio(icone_indiceUp); /*---*/ defineCentroMeio(icone_indiceDown);
 			//-------------------------
-			addChild(quadroObjeto);
+			//addChild(quadroObjeto);
 			addChild(imagem);
 			addChild(icone_scale); /*---*/ addChild(icone_rotation);
 			addChild(icone_giraD); /*---*/ addChild(icone_giraE);
