@@ -1,10 +1,13 @@
 package src_telas 
 {
+	import flash.events.TextEvent;
 	import src_assets.Assets;
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
+	import starling.text.TextFieldAutoSize;
+	
 	/**
 	 * ...
 	 * @author ...
@@ -23,6 +26,8 @@ package src_telas
 			loadTelaRascunho = _loadTelaRascunhos;
 			initValores();
 			definePosicao();
+			
+			
 		}
 		// atribui valores 
 		private function initValores():void 

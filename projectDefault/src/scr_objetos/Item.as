@@ -1,11 +1,15 @@
 package scr_objetos 
 {
+	import flash.geom.Point;
 	import src_assets.Assets;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
+	import starling.filters.BlurFilter;
+	import starling.filters.ColorMatrixFilter;
+	import starling.filters.BlurFilter;
 	/**
 	 * ...
 	 * @author ...
@@ -22,7 +26,18 @@ package scr_objetos
 		private var X:Number;
 		private var Y:Number;
 		public var imagem:Image;
-		//
+		//publicas para verificação--
+		public var myRotation:Number;
+		public var myScaleX:Number;
+		public var myScaleY:Number;
+		public var myIndex:Number;
+		
+		public var meuNome:String = "sou eu";
+		
+		private var numeroTeste:Number = 0;
+		//---------------------------
+		var blur:ColorMatrixFilter = new ColorMatrixFilter();
+		
 		public function Item() 
 		{
 			initValores();
@@ -31,6 +46,7 @@ package scr_objetos
 			this.pivotX = quadroObjeto.scaleX / 2;
 			this.pivotY = quadroObjeto.scaleY / 2;
 		}
+		
 		
 		private function initValores():void 
 		{
@@ -43,8 +59,12 @@ package scr_objetos
 			icone_indiceUp = new Image(Assets.getTexture("edicao_btn_camada_frente"));
 			icone_indiceDown = new Image(Assets.getTexture("edicao_btn_camada_tras"));
 			//--------------
-			imagem = new Image(Assets.getTexture("btn_novo"));
+			imagem = new Image(Assets.getTexture("sapo"));
+			//imagem.scaleX = .5;
+			//imagem.scaleY = .5;
 			defineCentroMeio(imagem);
+			quadroObjeto.alpha = 0;
+			defineCentroMeio(quadroObjeto);
 			defineCentroMeio(icone_scale); /*---*/ defineCentroMeio(icone_rotation);
 			defineCentroMeio(icone_giraD); /*---*/ defineCentroMeio(icone_giraE);
 			defineCentroMeio(icone_indiceUp); /*---*/ defineCentroMeio(icone_indiceDown);
@@ -54,8 +74,6 @@ package scr_objetos
 			addChild(icone_scale); /*---*/ addChild(icone_rotation);
 			addChild(icone_giraD); /*---*/ addChild(icone_giraE);
 			addChild(icone_indiceUp); /*---*/ addChild(icone_indiceDown);
-			
-			//quadroObjeto.x = quadroObjeto.width / 2; /*--*/ quadroObjeto.y = quadroObjeto.height / 2;
 		}
 		
 		//ajusta o centro para o meio das imagens
@@ -64,9 +82,11 @@ package scr_objetos
 			_imagem.pivotX = _imagem.width / 2;
 			_imagem.pivotY = _imagem.height / 2;
 		}
+		
 		// define posicao dos icones
 		private function definePosicao():void
 		{
+			quadroObjeto.x = quadroObjeto.width / 2; /**/ quadroObjeto.y = quadroObjeto.height / 2;
 			imagem.x = quadroObjeto.width / 2; /**/ imagem.y = quadroObjeto.height / 2;
 			icone_scale.x = quadroObjeto.width; /*--*/ icone_scale.y = quadroObjeto.height - quadroObjeto.height;
 			icone_rotation.x = quadroObjeto.width - quadroObjeto.width; /*--*/ icone_rotation.y = quadroObjeto.height - quadroObjeto.height;
@@ -81,7 +101,9 @@ package scr_objetos
 		{
 			icone_scale.addEventListener(TouchEvent.TOUCH, mudaScale);
 			icone_rotation.addEventListener(TouchEvent.TOUCH, mudaRotacao);
-			this.addEventListener(TouchEvent.TOUCH, moveItem);
+			imagem.addEventListener(TouchEvent.TOUCH, moveItem);
+			icone_indiceUp.addEventListener(TouchEvent.TOUCH, IndiceUp);
+			icone_indiceDown.addEventListener(TouchEvent.TOUCH, IndiceDown);
 		}
 		
 		// movimenta o personagem
@@ -92,9 +114,8 @@ package scr_objetos
 			{
 				if(_toque.phase == TouchPhase.MOVED) 
 				{
-					trace("!-------------------------!");
-					quadroObjeto.x = _toque.globalX;
-					quadroObjeto.y = _toque.globalY;
+					this.x = _toque.globalX-quadroObjeto.width/2;
+					this.y = _toque.globalY-quadroObjeto.height/2;
 				}
 			}
 		}
@@ -111,13 +132,31 @@ package scr_objetos
 				}
 				if(_toque.phase == TouchPhase.MOVED) 
 				{
-					if (X < _toque.globalX) { quadroObjeto.scaleX += .01; /**/ quadroObjeto.scaleY += .01; /**/ imagem.scaleX += .01; /**/ imagem.scaleY += .01; }
-					else if (X > _toque.globalX) { quadroObjeto.scaleX -= .01; /**/ quadroObjeto.scaleY -= .01;/**/ imagem.scaleX -= .01; /**/ imagem.scaleY -= .01; }
+					if (X < _toque.globalX)
+					{ 
+						quadroObjeto.scaleX += .01; /**/ quadroObjeto.scaleY += .01; 
+						imagem.scaleX += .01; /**/ imagem.scaleY += .01; 
+						
+					}
+					else if (X > _toque.globalX) 
+					{ 
+						quadroObjeto.scaleX -= .01; /**/ quadroObjeto.scaleY -= .01;
+						/**/ imagem.scaleX -= .01; /**/ imagem.scaleY -= .01; 
+						
+					}
 					X = _toque.globalX; /**/ Y = _toque.globalY;
+					imagem.filter = blur;
+					imagem.alpha = .8;
 					definePosicao();
+				}
+				if(_toque.phase == TouchPhase.ENDED) 
+				{
+					imagem.filter = null;
+					imagem.alpha = 1;
 				}
 			}
 		}
+		
 		//gira o objeto
 		private function mudaRotacao(e:TouchEvent):void 
 		{
@@ -127,17 +166,65 @@ package scr_objetos
 				if(_toque.phase == TouchPhase.BEGAN) 
 				{
 					X = _toque.globalX; /**/ Y = _toque.globalY;
+					numeroTeste = 0;
 				}
 				if(_toque.phase == TouchPhase.MOVED) 
 				{
-					if (X < _toque.globalX) { imagem.rotation += .05;}
-					else if (X > _toque.globalX) { imagem.rotation -= .05; }
+					if (X < _toque.globalX)
+					{ 
+						imagem.rotation += .05;
+						numeroTeste+= 0.0005;
+					}
+					else if (X > _toque.globalX) 
+					{ 
+						imagem.rotation -= .05; 
+						numeroTeste-= 0.001;
+					}
 					X = _toque.globalX; /**/ Y = _toque.globalY;
-					
+					blur.adjustHue(numeroTeste);
+					imagem.filter = blur;
+					//imagem.alpha = .8;
+				}
+				if(_toque.phase == TouchPhase.ENDED) 
+				{
+					//imagem.filter = null;
+					//imagem.alpha = 1;
 				}
 			}
 		}
 		
+		///MUDA O INDICE DO OBJETO
+		private function IndiceUp(e:TouchEvent):void
+		{
+			var _toque:Touch = e.getTouch((e.currentTarget) as Image );
+			if(_toque)
+			{
+				if(_toque.phase == TouchPhase.BEGAN) 
+				{
+					var meuIndice:Number = this.parent.getChildIndex(this);
+					if ((meuIndice+1) <= this.parent.numChildren - 1)
+					{
+						this.parent.setChildIndex(this, (meuIndice+1) );
+					}
+				}
+			}
+		}
+		///
+		private function IndiceDown(e:TouchEvent):void
+		{
+			var _toque:Touch = e.getTouch((e.currentTarget) as Image );
+			if(_toque)
+			{
+				if(_toque.phase == TouchPhase.BEGAN) 
+				{
+					var meuIndice:Number = this.parent.getChildIndex(this);
+					if ((meuIndice-1) >= 1)
+					{
+						this.parent.setChildIndex(this, (meuIndice-1) );
+					}
+				}
+			}
+		}
 	}
 
 }

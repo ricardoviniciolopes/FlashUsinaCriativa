@@ -11,11 +11,14 @@ package src_assets
 	 */
 	public class Assets extends Sprite
 	{
+		[Embed(source = "../../assets/Ferramenta/itens/animais/sapo.png")]
+		public static const sapo_img:Class;
+		////////////////////////////////////////////////////////////////////////////////////
 		[Embed(source = "../../assets/Ferramenta/quadroDosObjetos.png")]
-		private static const quadro_dos_objetos_img:Class;
+		public static const quadro_dos_objetos_img:Class;
 		//----------------------------
 		[Embed(source="../../assets/fundoBranco.png")]
-		private static const fundo_cinza_img:Class;
+		public static const fundo_cinza_img:Class;
 		//ITENS DA TELA HOME------------------------------------------------------------------
 		[Embed(source = "../../assets/Home/home.jpg")]
 		public static const fundo_home_img:Class;

@@ -6,6 +6,9 @@ package src_telas.itens_deskTop
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.core.Starling;
+	import starling.events.Touch;
+	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
 	/**
 	 * ...
 	 * @author ...
@@ -40,6 +43,7 @@ package src_telas.itens_deskTop
 				quadro[a].alpha = 0;
 			}
 			quadro[_num].alpha = 1;
+			setChildIndex(quadro[_num], (numChildren - 1) );
 		}
 		
 	}

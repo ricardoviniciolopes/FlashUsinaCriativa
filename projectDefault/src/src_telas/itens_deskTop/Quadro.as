@@ -3,6 +3,9 @@ package src_telas.itens_deskTop
 	import src_assets.Assets;
 	import starling.display.Image;
 	import starling.display.Sprite;
+	import starling.events.Touch;
+	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
 	/**
 	 * ...
 	 * @author ...
