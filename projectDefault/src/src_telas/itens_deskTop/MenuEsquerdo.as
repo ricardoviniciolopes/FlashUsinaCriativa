@@ -55,7 +55,7 @@ package src_telas.itens_deskTop
 			popupFundos = new PopupFundos(pagina);
 			popupItem = new PopupItem(pagina);
 			popupPersonagem = new PopupPersonagem();
-			popupBalao = new PopupBalao();
+			popupBalao = new PopupBalao(pagina);
 			popupEfeito = new PopupEfeito();
 			//
 			chaveOf = new Button(Assets.getTexture("btn_chave_of"), "");
@@ -113,6 +113,10 @@ package src_telas.itens_deskTop
 		{
 			removePopup();
 			addChild(popupBalao);
+			trace
+			(
+				ControleGeral.nomeDoItem+" Nome "+ControleGeral.rotacaoDoItem+" X "+ControleGeral.scalexDoItem+" Y "+ControleGeral.scaleyDoItem
+			);
 		}
 		////cria barra para escolha do Efeito
 		function criaPopupEfeito(e:Event):void

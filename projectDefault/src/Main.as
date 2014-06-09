@@ -12,7 +12,7 @@ package
 	 * ...
 	 * @author Léo Santana
 	 */
-	[SWF(width = "1024", height = "768", backgroundColor = "0x000000")]
+	[SWF(width = "1311", height = "768", backgroundColor = "0x000000")]
 	 
 	public class Main extends Sprite 
 	{		

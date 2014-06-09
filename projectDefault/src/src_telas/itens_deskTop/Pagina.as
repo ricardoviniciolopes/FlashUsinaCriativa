@@ -33,7 +33,7 @@ package src_telas.itens_deskTop
 				addChild(quadro[i]);
 			}
 			mudaQuadro(0);
-			this.clipRect = new Rectangle(120, 100, 850, 572);
+			this.clipRect = new Rectangle(120,100,1150,572);
 		}
 		
 		public function mudaQuadro(_num:Number):void 
@@ -43,7 +43,7 @@ package src_telas.itens_deskTop
 				quadro[a].alpha = 0;
 			}
 			quadro[_num].alpha = 1;
-			setChildIndex(quadro[_num], (numChildren - 1) );
+			setChildIndex(quadro[_num], (numChildren -1) );
 		}
 		
 	}

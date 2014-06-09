@@ -2,6 +2,7 @@ package src_telas
 {
 	import flash.events.TextEvent;
 	import src_assets.Assets;
+	import src_assets.AssetsItem;
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -20,12 +21,15 @@ package src_telas
 		private var loadTelaNovo:Function;
 		private var loadTelaRascunho:Function;
 		
+		private var imagemTeste:Image;
+		
 		public function TelaHome(_loadTelaNovo:Function,_loadTelaRascunhos:Function) 
 		{
 			loadTelaNovo = _loadTelaNovo;
 			loadTelaRascunho = _loadTelaRascunhos;
 			initValores();
 			definePosicao();
+			//imagemTeste= new Image(AssetsItem.getAtlas("b").getTexture("bicicleta_mc instance 10001"));
 			
 			
 		}

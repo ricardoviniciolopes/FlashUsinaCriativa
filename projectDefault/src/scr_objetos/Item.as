@@ -28,18 +28,25 @@ package scr_objetos
 		public var imagem:Image;
 		//publicas para verificação--
 		public var myRotation:Number;
-		public var myScaleX:Number;
-		public var myScaleY:Number;
+		public var myScaleX:Number=1;
+		public var myScaleY:Number=1;
 		public var myIndex:Number;
 		
-		public var meuNome:String = "sou eu";
+		public var meuNome:String;
 		
 		private var numeroTeste:Number = 0;
 		//---------------------------
 		var blur:ColorMatrixFilter = new ColorMatrixFilter();
 		
-		public function Item() 
+		public function Item(_nome:String,_rotacao:Number,_scaleX:Number,_scaleY:Number,_index:Number) 
 		{
+			meuNome = _nome;
+			myRotation = _rotacao;
+			myScaleX = _scaleX;
+			myScaleY = _scaleY;
+			myIndex = _index;
+			
+			
 			initValores();
 			definePosicao();
 			adicionandoEventosIcones();
@@ -50,6 +57,7 @@ package scr_objetos
 		
 		private function initValores():void 
 		{
+			
 			X = 0; /*--*/ Y = 0;
 			quadroObjeto = new Image(Assets.getTexture("quadro_dos_objetos"));
 			icone_scale = new Image(Assets.getTexture("edicao_editar_escala"));
@@ -60,7 +68,8 @@ package scr_objetos
 			icone_indiceDown = new Image(Assets.getTexture("edicao_btn_camada_tras"));
 			//--------------
 			imagem = new Image(Assets.getTexture("sapo"));
-
+			
+			////////////////////////
 			defineCentroMeio(imagem);
 			defineCentroMeio(quadroObjeto);
 			defineCentroMeio(icone_scale); /*---*/ defineCentroMeio(icone_rotation);
@@ -72,6 +81,14 @@ package scr_objetos
 			addChild(icone_scale); /*---*/ addChild(icone_rotation);
 			addChild(icone_giraD); /*---*/ addChild(icone_giraE);
 			addChild(icone_indiceUp); /*---*/ addChild(icone_indiceDown);
+			defineParametros();
+		}
+		
+		private function defineParametros():void 
+		{
+			imagem.scaleX = myScaleX;/**/quadroObjeto.scaleX = myScaleX;
+			imagem.scaleY = myScaleY;/**/quadroObjeto.scaleY = myScaleY;
+			imagem.rotation = myRotation;/**/quadroObjeto.rotation = myRotation;
 		}
 		
 		//ajusta o centro para o meio das imagens
@@ -84,6 +101,7 @@ package scr_objetos
 		// define posicao dos icones
 		private function definePosicao():void
 		{
+			
 			quadroObjeto.x = quadroObjeto.width / 2; /**/ quadroObjeto.y = quadroObjeto.height / 2;
 			imagem.x = quadroObjeto.width / 2; /**/ imagem.y = quadroObjeto.height / 2;
 			icone_scale.x = quadroObjeto.width; /*--*/ icone_scale.y = quadroObjeto.height - quadroObjeto.height;
@@ -107,6 +125,11 @@ package scr_objetos
 		// movimenta o personagem
 		private function moveItem(e:TouchEvent):void 
 		{
+			ControleGeral.scalexDoItem = myScaleX;
+			ControleGeral.scaleyDoItem = myScaleY;
+			ControleGeral.rotacaoDoItem = myRotation;
+			ControleGeral.nomeDoItem = meuNome;
+			//---------------------------------
 			var _toque:Touch = e.getTouch((e.currentTarget) as Image );
 			if(_toque)
 			{
@@ -152,6 +175,7 @@ package scr_objetos
 					imagem.filter = null;
 					imagem.alpha = 1;
 				}
+				myScaleX = imagem.scaleX;/**/ myScaleY = imagem.scaleY;
 			}
 		}
 		
@@ -188,6 +212,7 @@ package scr_objetos
 					//imagem.filter = null;
 					//imagem.alpha = 1;
 				}
+				myRotation = imagem.rotation;
 			}
 		}
 		

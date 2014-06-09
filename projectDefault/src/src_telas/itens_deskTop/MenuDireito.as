@@ -70,17 +70,17 @@ package src_telas.itens_deskTop
 			{
 				if(_toque.phase == TouchPhase.BEGAN) 
 				{
-					if (this.x == 795) 
+					if (this.x == 1082) 
 					{  
-						TweenLite.to(this, .6, { x:990 , ease:Back.easeInOut } ); 
+						TweenLite.to(this, .6, { x:1277 , ease:Back.easeInOut } ); 
 						Starling.juggler.delayCall(function() {btn_show.alpha = 1; fundo.alpha = 0.01; }, .5);
 						
 					}
-					else if (this.x == 990) 
+					else if (this.x == 1277) 
 					{
 						btn_show.alpha = 0.01;
 						fundo.alpha = 1;
-						TweenLite.to(this, .6, { x:795 , ease:Back.easeInOut } ); 
+						TweenLite.to(this, .6, { x:1082 , ease:Back.easeInOut } ); 
 					}
 				}
 			}

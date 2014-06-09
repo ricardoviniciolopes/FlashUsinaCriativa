@@ -74,7 +74,7 @@ package src_telas
 		private function defineValores():void
 		{
 			menuEsquerdo.x = 25; /**/ menuEsquerdo.y = 100;
-			menuDireito.x = 990; /**/ menuDireito.y = 100;
+			menuDireito.x = 1277; /**/ menuDireito.y = 100;
 		}
 		
 	}

@@ -1,15 +1,18 @@
 package src_telas.itens_deskTop.Itens_menu_esquerdo 
 {
-	import starling.display.Sprite;
 	import com.greensock.TweenLite;
+	import scr_objetos.Item;
 	import src_assets.Assets;
+	import src_telas.itens_deskTop.Pagina;
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.core.Starling;
+	import starling.events.Touch;
+	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
 	import com.greensock.easing.*;
-	import starling.display.Sprite;
 	/**
 	 * ...
 	 * @author ...
@@ -21,9 +24,11 @@ package src_telas.itens_deskTop.Itens_menu_esquerdo
 		private var btn_setaE:Button;
 		private var quadro:Vector.<Image>;
 		private var thumb:Vector.<Image>;
+		private var pagina:Vector.<Pagina>;
 		
-		public function PopupBalao() 
+		public function PopupBalao(_pagina:Vector.<Pagina>) 
 		{
+			pagina = _pagina;
 			initValores();
 			definePosicao();
 		}
@@ -56,7 +61,8 @@ package src_telas.itens_deskTop.Itens_menu_esquerdo
 				//thumb[q].scaleX = .9; /**/ thumb[q].scaleY = .9;
 				quadro[q].x = 70 + (80 * q); /*--*/ quadro[q].y = 5;
 				//thumb[q].x = quadro[q].x+5; /*-----*/ thumb[q].y = quadro[q].y+5;
-				
+				quadro[q].addEventListener(TouchEvent.TOUCH, adicionaBalao);
+				////
 				if ( (quadro[q].x < 70) || (quadro[q].x > 470) )
 				{ 
 					quadro[q].alpha = 0; 
@@ -68,6 +74,24 @@ package src_telas.itens_deskTop.Itens_menu_esquerdo
 			addChild(btn_setaD);
 			addChild(btn_setaE);
 		}
+		/////
+		private function adicionaBalao(e:TouchEvent):void 
+		{
+			var _toque:Touch = e.getTouch((e.currentTarget) as Image );
+			if(_toque)
+			{
+				if(_toque.phase == TouchPhase.BEGAN) 
+				{
+					var item:Item = new Item(ControleGeral.nomeDoItem,ControleGeral.rotacaoDoItem,ControleGeral.scalexDoItem,ControleGeral.scaleyDoItem,0);
+					item.x = 300;
+					item.y = 300;
+					pagina[ControleGeral.currentPagina].quadro[ControleGeral.currentQuadro].addChild(item);
+				}
+			}
+		}
+		
+		
+		/////
 		
 		private function moveQuadros(e:Event):void 
 		{

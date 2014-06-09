@@ -22,8 +22,10 @@ package
 		public static var currentQuadro:Number;
 		public static var currentPagina:Number;
 		public static var quantidadeQuadros:Number;
-		
-		
+		public static var nomeDoItem:String;
+		public static var rotacaoDoItem:Number;
+		public static var scalexDoItem:Number;
+		public static var scaleyDoItem:Number;
 		
 		
 		public function ControleGeral() 
@@ -36,6 +38,10 @@ package
 		{
 			currentPagina = 0;
 			currentQuadro = 0;
+			nomeDoItem = "";
+			rotacaoDoItem = 0;
+			scalexDoItem = 1;
+			scaleyDoItem = 1;
 		}
 		
 		private function initValores():void
