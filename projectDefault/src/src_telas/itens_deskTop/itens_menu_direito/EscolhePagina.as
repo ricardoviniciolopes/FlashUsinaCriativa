@@ -174,7 +174,6 @@ package src_telas.itens_deskTop.itens_menu_direito
 				{ 
 					current = c; 
 					ControleGeral.currentPagina = current;
-					trace("A PAGINA: " + ControleGeral.currentPagina);
 					definePaginaAtual();
 				}
 			}
@@ -195,6 +194,3 @@ package src_telas.itens_deskTop.itens_menu_direito
 	}
 
 }
-
-
-
