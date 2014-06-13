@@ -1,7 +1,9 @@
 package scr_objetos 
 {
+	import com.greensock.TweenLite;
 	import flash.geom.Point;
 	import src_assets.Assets;
+	import starling.core.Starling;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Touch;
@@ -71,6 +73,8 @@ package scr_objetos
 				this.pivotX = quadroObjeto.scaleX / 2;
 				this.pivotY = quadroObjeto.scaleY / 2;
 			}
+			
+			zeraAlpha();
 		}
 		
 		private function giraEsquerda(e:TouchEvent):void 
@@ -214,6 +218,12 @@ package scr_objetos
 			if(_toque)
 			{
 				ControleGeral.nomeDoItem = meuNome;
+				if(_toque.phase == TouchPhase.BEGAN) 
+				{
+					upAlpha();
+					zeraAlpha();
+				}
+				/////
 				if(_toque.phase == TouchPhase.MOVED) 
 				{
 					this.x = _toque.globalX-quadroObjeto.width/2;
@@ -284,9 +294,6 @@ package scr_objetos
 						numeroTeste-= 0.001;
 					}
 					X = _toque.globalX; /**/ Y = _toque.globalY;
-					blur.adjustHue(numeroTeste);
-					imagem[irot].filter = blur;
-					//imagem.alpha = .8;
 				}
 				if(_toque.phase == TouchPhase.ENDED) 
 				{
@@ -329,6 +336,46 @@ package scr_objetos
 				}
 			}
 		}
+		///deixa visivel as images dos icones
+		private function upAlpha():void
+		{
+			Starling.juggler.delayCall(
+				function():void 
+				{
+					tweenAlpha(icone_scale,.1, 1);
+					tweenAlpha(icone_rotation,.1, 1);
+					tweenAlpha(icone_giraD,.1, 1);
+					tweenAlpha(icone_giraE,.1, 1);
+					tweenAlpha(icone_indiceDown,.1, 1);
+					tweenAlpha(icone_indiceUp,.1,1);
+					
+				},1
+			);
+		}
+		// zera o alfa pra deixar invisivel a imagem dos icones
+		private function zeraAlpha():void
+		{
+			Starling.juggler.delayCall(
+				function():void 
+				{
+					tweenAlpha(icone_scale,.5, 0);
+					tweenAlpha(icone_rotation,.5, 0);
+					tweenAlpha(icone_giraD,.5, 0);
+					tweenAlpha(icone_giraE,.5, 0);
+					tweenAlpha(icone_indiceDown,.5, 0);
+					tweenAlpha(icone_indiceUp,.5,0);
+					
+				},3
+			);
+		}
+		
+		private function tweenAlpha(_img:Image,_time:Number,_num:int):void
+		{
+			TweenLite.to(_img,_time,{alpha:_num});
+		}
+		
+		
 	}
+	
 
 }

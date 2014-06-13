@@ -239,27 +239,27 @@ package src_assets
 		
 		
 		//-------CENARIOS / FUNDOS---------------------------
-		[Embed(source = "../../assets/Ferramenta/cenarios/cenarios/cenario_cidade_final_00.png")]
+		[Embed(source="../../assets/Ferramenta/cenarios/cenarios/cenario_cidade_final_00.png")]
 		public static const f0_img:Class;
-		[Embed(source = "../../assets/Ferramenta/cenarios/cenarios/cenario_cidade_final_01.png")]
+		[Embed(source="../../assets/Ferramenta/cenarios/cenarios/cenario_cidade_final_01.png")]
 		public static const f1_img:Class;
-		[Embed(source = "../../assets/Ferramenta/cenarios/cenarios/dia_das_bruxas_final_00.png")]
+		[Embed(source="../../assets/Ferramenta/cenarios/cenarios/dia_das_bruxas_final_00.png")]
 		public static const f2_img:Class;
-		[Embed(source = "../../assets/Ferramenta/cenarios/cenarios/dia_das_bruxas_final_01.png")]
+		[Embed(source="../../assets/Ferramenta/cenarios/cenarios/dia_das_bruxas_final_01.png")]
 		public static const f3_img:Class;
-		[Embed(source = "../../assets/Ferramenta/cenarios/cenarios/fazenda_final_00.png")]
+		[Embed(source="../../assets/Ferramenta/cenarios/cenarios/fazenda_final_00.png")]
 		public static const f4_img:Class;
-		[Embed(source = "../../assets/Ferramenta/cenarios/cenarios/fazenda_final_01.png")]
+		[Embed(source="../../assets/Ferramenta/cenarios/cenarios/fazenda_final_01.png")]
 		public static const f5_img:Class;
-		[Embed(source = "../../assets/Ferramenta/cenarios/cenarios/natalino_final_00.png")]
+		[Embed(source="../../assets/Ferramenta/cenarios/cenarios/natalino_final_00.png")]
 		public static const f6_img:Class;
-		[Embed(source = "../../assets/Ferramenta/cenarios/cenarios/natalino_final_03.png")]
+		[Embed(source="../../assets/Ferramenta/cenarios/cenarios/natalino_final_03.png")]
 		public static const f7_img:Class;
-		[Embed(source = "../../assets/Ferramenta/cenarios/cenarios/natalino_final_04.png")]
+		[Embed(source="../../assets/Ferramenta/cenarios/cenarios/natalino_final_04.png")]
 		public static const f8_img:Class;
-		[Embed(source = "../../assets/Ferramenta/cenarios/cenarios/praia_final_00.png")]
+		[Embed(source="../../assets/Ferramenta/cenarios/cenarios/praia_final_00.png")]
 		public static const f9_img:Class;
-		[Embed(source = "../../assets/Ferramenta/cenarios/cenarios/praia_final_01.png")]
+		[Embed(source="../../assets/Ferramenta/cenarios/cenarios/praia_final_01.png")]
 		public static const f10_img:Class;
 		//=====FUNDOS THUMB==============
 		[Embed(source = "../../assets/Ferramenta/cenarios/cenarios/thumb_Cidade1.png")]
