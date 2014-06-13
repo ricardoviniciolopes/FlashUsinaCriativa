@@ -31,12 +31,13 @@ package scr_objetos
 		public var myScaleX:Number=1;
 		public var myScaleY:Number=1;
 		public var myIndex:Number;
-		
+		public var meuTipo:String="ia";
+		public var imagens:Vector.<Image>;
 		public var meuNome:String;
-		
+		public var irot:int=0;
 		private var numeroTeste:Number = 0;
 		//---------------------------
-		var blur:ColorMatrixFilter = new ColorMatrixFilter();
+		private var blur:ColorMatrixFilter = new ColorMatrixFilter();
 		
 		public function Item(_nome:String,_rotacao:Number,_scaleX:Number,_scaleY:Number,_index:Number) 
 		{
@@ -46,12 +47,25 @@ package scr_objetos
 			myScaleY = _scaleY;
 			myIndex = _index;
 			
+			imagens = new Vector.<Image>;
 			
-			initValores();
-			definePosicao();
-			adicionandoEventosIcones();
-			this.pivotX = quadroObjeto.scaleX / 2;
-			this.pivotY = quadroObjeto.scaleY / 2;
+			for (var img:int = 0; img < 10; img++ )
+			{ 
+				if( (Assets.getAtlas(meuNome).getTexture( String(img) ))!=(undefined||null) )
+				{
+					imagens[img] = new Image(Assets.getAtlas(meuNome).getTexture( String(img)) );
+				}
+				else { break;  }
+			}
+			
+			if (meuNome!="")
+			{
+				initValores();
+				definePosicao();
+				adicionandoEventosIcones();
+				this.pivotX = quadroObjeto.scaleX / 2;
+				this.pivotY = quadroObjeto.scaleY / 2;
+			}
 		}
 		
 		
@@ -67,7 +81,7 @@ package scr_objetos
 			icone_indiceUp = new Image(Assets.getTexture("edicao_btn_camada_frente"));
 			icone_indiceDown = new Image(Assets.getTexture("edicao_btn_camada_tras"));
 			//--------------
-			imagem = new Image(Assets.getTexture("sapo"));
+			imagem = imagens[0];
 			
 			////////////////////////
 			defineCentroMeio(imagem);
@@ -128,11 +142,12 @@ package scr_objetos
 			ControleGeral.scalexDoItem = myScaleX;
 			ControleGeral.scaleyDoItem = myScaleY;
 			ControleGeral.rotacaoDoItem = myRotation;
-			ControleGeral.nomeDoItem = meuNome;
+			
 			//---------------------------------
 			var _toque:Touch = e.getTouch((e.currentTarget) as Image );
 			if(_toque)
 			{
+				ControleGeral.nomeDoItem = meuNome;
 				if(_toque.phase == TouchPhase.MOVED) 
 				{
 					this.x = _toque.globalX-quadroObjeto.width/2;

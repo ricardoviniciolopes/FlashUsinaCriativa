@@ -26,12 +26,13 @@ package src_telas.itens_deskTop.itens_menu_direito
 		private var btn_remove:Button;
 		private var btn_setaD:Button;
 		private var btn_setaE:Button;
-		private var pagina = Vector.<Pagina>;
+		private var pagina:Vector.<Pagina>;
 		public var criaPagina:Function;
 		public var definePaginaAtual:Function;
 		
 		public function EscolhePagina(_pagina:Vector.<Pagina>,_criaPagina:Function,_definePaginaAtual:Function) 
 		{
+			
 			criaPagina = _criaPagina;
 			definePaginaAtual = _definePaginaAtual;
 			pagina = _pagina;
@@ -57,11 +58,15 @@ package src_telas.itens_deskTop.itens_menu_direito
 		
 		private function removePagina(e:Event):void 
 		{
-			if((modeloPagina.length - 1)>=0) 
+			trace("O TAMANHO NO INICIO: "+modeloPagina.length);
+			if((modeloPagina.length - 1)>0) 
 			{
 				removeChild(modeloPagina[modeloPagina.length - 1]);
+				modeloPagina.splice( (modeloPagina.length - 1), 1);
+				if (modeloPagina[modeloPagina.length - 1].x == ( -130)) {puxaParaFrente(); }
+				
 			}
-			modeloPagina.splice( (modeloPagina.length - 1),1);
+			trace("O TAMANHO NO fim: "+modeloPagina.length);
 		}
 		////
 		private function defineposicao():void
@@ -80,6 +85,7 @@ package src_telas.itens_deskTop.itens_menu_direito
 		//cria uma nova miniatura de pagina representando a pagina atual
 		public function criaNovaPagina(e:Event):void
 		{
+			trace(this.parent.parent);
 			btn_add.removeEventListener(Event.TRIGGERED, criaNovaPagina);
 			modeloPagina.push(new Image(Assets.getTexture("menu_direito_pagina") ) );
 			addChild(modeloPagina[modeloPagina.length - 1]);  /*adiciona um novo item no vector*/
@@ -94,7 +100,7 @@ package src_telas.itens_deskTop.itens_menu_direito
 				puxaParaTras();
 			}
 			criaPagina();
-			Starling.juggler.delayCall(function()
+			Starling.juggler.delayCall(function():void
 			{
 				btn_add.addEventListener(Event.TRIGGERED, criaNovaPagina);
 			},.5);
@@ -109,7 +115,8 @@ package src_telas.itens_deskTop.itens_menu_direito
 					if ( (modeloPagina[modeloPagina.length-1].x>0)&&(modeloPagina.length>1))
 					{
 						btn_setaE.removeEventListener(Event.TRIGGERED, mudaPosicao);
-						btn_setaD.removeEventListener(Event.TRIGGERED,mudaPosicao);
+						btn_setaD.removeEventListener(Event.TRIGGERED, mudaPosicao);
+						//ControleGeral.currentPagina = ControleGeral.currentPagina-1;
 						puxaParaTras();
 					}
 				break;
@@ -118,7 +125,8 @@ package src_telas.itens_deskTop.itens_menu_direito
 					if ( (modeloPagina[0].x<0)&&(modeloPagina.length>1))
 					{
 						btn_setaE.removeEventListener(Event.TRIGGERED, mudaPosicao);
-						btn_setaD.removeEventListener(Event.TRIGGERED,mudaPosicao);
+						btn_setaD.removeEventListener(Event.TRIGGERED, mudaPosicao);
+						//ControleGeral.currentPagina = ControleGeral.currentPagina+1;
 						puxaParaFrente();
 					}
 				break;
@@ -132,7 +140,7 @@ package src_telas.itens_deskTop.itens_menu_direito
 			for (var i:int = 0; i < modeloPagina.length; i++ ) 
 			{
 				TweenLite.to(modeloPagina[i], .2, { x:modeloPagina[i].x - 130 } );
-				Starling.juggler.delayCall(function() 
+				Starling.juggler.delayCall(function():void
 				{
 					defineQualPagina(); 
 					btn_setaE.addEventListener(Event.TRIGGERED, mudaPosicao);
@@ -147,7 +155,7 @@ package src_telas.itens_deskTop.itens_menu_direito
 			for (var i:int = 0; i < modeloPagina.length; i++ ) 
 			{
 				TweenLite.to(modeloPagina[i], .2, { x:modeloPagina[i].x + 130 } );
-				Starling.juggler.delayCall(function() 
+				Starling.juggler.delayCall(function():void
 				{
 					defineQualPagina(); 
 					btn_setaE.addEventListener(Event.TRIGGERED, mudaPosicao);

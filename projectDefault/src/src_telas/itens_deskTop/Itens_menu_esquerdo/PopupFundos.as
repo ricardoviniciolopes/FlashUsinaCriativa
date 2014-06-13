@@ -87,6 +87,8 @@ package src_telas.itens_deskTop.Itens_menu_esquerdo
 					var imagem:Image = new Image(Assets.getTexture("f" + Image(e.currentTarget).name));
 					pagina[ControleGeral.currentPagina].quadro[ControleGeral.currentQuadro].removeChildAt(0);
 					pagina[ControleGeral.currentPagina].quadro[ControleGeral.currentQuadro].addChild(imagem);
+					
+					imagem.name = "f" + Image(e.currentTarget).name;
 					pagina[ControleGeral.currentPagina].quadro[ControleGeral.currentQuadro].setChildIndex(imagem, 0);
 				}
 			}
@@ -103,8 +105,8 @@ package src_telas.itens_deskTop.Itens_menu_esquerdo
 					{
 						if (quadro[0].x<70)
 						{
-							var posFutura:Number= quadro[l].x + 80;
-							if ( (posFutura < 70) || (posFutura > 470) )
+							var PosFutura:Number= quadro[l].x + 80;
+							if ( (PosFutura < 70) || (PosFutura > 470) )
 							{ 
 								TweenLite.to(quadro[l], .05, { alpha:0 } );
 								TweenLite.to(thumb[l],.05,{alpha:0});

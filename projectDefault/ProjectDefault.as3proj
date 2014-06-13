@@ -8,8 +8,8 @@
     <movie fps="30" />
     <movie width="768" />
     <movie height="1024" />
-    <movie version="11" />
-    <movie minorVersion="9" />
+    <movie version="12" />
+    <movie minorVersion="0" />
     <movie platform="Flash Player" />
     <movie background="#FF8000" />
   </output>
@@ -55,6 +55,7 @@
     <element path="lib\starling.swc" />
     <element path="atributos\greensock\greensock.swc" />
     <element path="lib\greensock.swc" />
+    <element path="lib\feathers.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

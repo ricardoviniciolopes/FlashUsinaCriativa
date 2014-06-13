@@ -1,25 +1,29 @@
 package src_assets 
 {
 	import flash.display.Bitmap;
+	import flash.sampler.NewObjectSample;
 	import flash.utils.Dictionary;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.textures.Texture;
+	import starling.textures.TextureAtlas;
 	/**
 	 * ...
 	 * @author ...
 	 */
 	public class Assets extends Sprite
 	{
+		
+		
 		[Embed(source = "../../assets/Ferramenta/itens/animais/sapo.png")]
 		public static const sapo_img:Class;
-		////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////
 		[Embed(source = "../../assets/Ferramenta/quadroDosObjetos.png")]
 		public static const quadro_dos_objetos_img:Class;
 		//----------------------------
 		[Embed(source="../../assets/fundoBranco.png")]
 		public static const fundo_cinza_img:Class;
-		//ITENS DA TELA HOME------------------------------------------------------------------
+		//ITENS DA TELA HOME--------------------------------------------
 		[Embed(source = "../../assets/Home/home.jpg")]
 		public static const fundo_home_img:Class;
 		//--
@@ -392,6 +396,278 @@ package src_assets
 		[Embed(source = "../../assets/Ferramenta/interface2_escolha/padrao/BTN_Voltar.png")]
 		public static const popup_btn_seta_voltar_img:Class;
 		//------------------------------
+		//---ITENS-------IMG---XML--------------------------------------------------------------------------------------------------------
+			// abobora--
+			[Embed(source = "../../assets/Ferramenta/itens/abobora/abobora.png")]
+			private static const i0_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/abobora/abobora.xml", mimeType = "application/octet-stream")]
+			private static const i0_xml:Class;
+			// bicicleta
+			[Embed(source = "../../assets/Ferramenta/itens/bicicleta/bicicleta.png")]
+			private static const i1_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/bicicleta/bicicleta.xml", mimeType = "application/octet-stream")]
+			private static const i1_xml:Class;
+			//boia pato
+			[Embed(source = "../../assets/Ferramenta/itens/boia_pato/boiapato.png")]
+			private static const i2_img:Class;
+			[Embed(source="../../assets/Ferramenta/itens/boia_pato/boiapato.xml", mimeType = "application/octet-stream")]
+			private static const i2_xml:Class;
+			// bola futebol
+			[Embed(source = "../../assets/Ferramenta/itens/bola_futebol/bola.png")]
+			private static const i3_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/bola_futebol/bola.xml", mimeType = "application/octet-stream")]
+			private static const i3_xml:Class;
+			//boneco neve
+			[Embed(source = "../../assets/Ferramenta/itens/boneco_neve/bonecodeneve.png")]
+			private static const i4_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/boneco_neve/bonecodeneve.xml", mimeType = "application/octet-stream")]
+			private static const i4_xml:Class;
+			//cadeira
+			[Embed(source = "../../assets/Ferramenta/itens/cadeira/cadeira.png")]
+			private static const i5_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/cadeira/cadeira.xml", mimeType = "application/octet-stream")]
+			private static const i5_xml:Class;
+			//cadeira madeira
+			[Embed(source = "../../assets/Ferramenta/itens/cadeira_madeira/cadeiramadeira.png")]
+			private static const i6_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/cadeira_madeira/cadeiramadeira.xml", mimeType = "application/octet-stream")]
+			private static const i6_xml:Class;
+			// candelabro
+			[Embed(source = "../../assets/Ferramenta/itens/candelabro/candelabro.png")]
+			private static const i7_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/candelabro/candelabro.xml", mimeType = "application/octet-stream")]
+			private static const i7_xml:Class;
+			// carrinho mercado
+			[Embed(source = "../../assets/Ferramenta/itens/carrinho_mercado/carrinhomercado.png")]
+			private static const i8_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/carrinho_mercado/carrinhomercado.xml", mimeType = "application/octet-stream")]
+			private static const i8_xml:Class;
+			//celular 
+			[Embed(source = "../../assets/Ferramenta/itens/celular/celular.png")]
+			private static const i9_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/celular/celular.xml", mimeType = "application/octet-stream")]
+			private static const i9_xml:Class;
+			//computador
+			[Embed(source = "../../assets/Ferramenta/itens/computador/computador.png")]
+			private static const i10_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/computador/computador.xml", mimeType = "application/octet-stream")]
+			private static const i10_xml:Class;
+			// escorregador
+			[Embed(source = "../../assets/Ferramenta/itens/escorregador/escorregador.png")]
+			private static const i11_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/escorregador/escorregador.xml", mimeType = "application/octet-stream")]
+			private static const i11_xml:Class;
+			// fantasma
+			[Embed(source = "../../assets/Ferramenta/itens/fantasma/fantasma.png")]
+			private static const i12_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/fantasma/fantasma.xml", mimeType = "application/octet-stream")]
+			private static const i12_xml:Class;
+			// gangorra
+			[Embed(source = "../../assets/Ferramenta/itens/gangorra/gangorra.png")]
+			private static const i13_img:Class;
+			[Embed(source="../../assets/Ferramenta/itens/gangorra/gangorra.xml", mimeType = "application/octet-stream")]
+			private static const i13_xml:Class;
+			//guarda chuva aberto
+			[Embed(source = "../../assets/Ferramenta/itens/guarda_chuva_aberto/guardachuvaaberto.png")]
+			private static const i14_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/guarda_chuva_aberto/guardachuvaaberto.xml", mimeType = "application/octet-stream")]
+			private static const i14_xml:Class;
+			// guarda chuva fechado
+			[Embed(source = "../../assets/Ferramenta/itens/guarda_chuva_fechado/guardachuvafechado.png")]
+			private static const i15_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/guarda_chuva_fechado/guardachuvafechado.xml", mimeType = "application/octet-stream")]
+			private static const i15_xml:Class;
+			// mesa madeira
+			[Embed(source = "../../assets/Ferramenta/itens/mesa_madeira/mesamadeira.png")]
+			private static const i16_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/mesa_madeira/mesamadeira.xml", mimeType = "application/octet-stream")]
+			private static const i16_xml:Class;
+			// mesa menina
+			[Embed(source = "../../assets/Ferramenta/itens/mesa_menina/mesamenina.png")]
+			private static const i17_img:Class;
+			[Embed(source="../../assets/Ferramenta/itens/mesa_menina/mesamenina.xml", mimeType = "application/octet-stream")]
+			private static const i17_xml:Class;
+			// pa
+			[Embed(source="../../assets/Ferramenta/itens/pa/pa.png")]
+			private static const i18_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/pa/pa.xml", mimeType = "application/octet-stream")]
+			private static const i18_xml:Class;
+			// pneu
+			[Embed(source = "../../assets/Ferramenta/itens/pneu/pneu.png")]
+			private static const i19_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/pneu/pneu.xml", mimeType = "application/octet-stream")]
+			private static const i19_xml:Class;
+			// poltrona
+			[Embed(source = "../../assets/Ferramenta/itens/poltrona/poltrona.png")]
+			private static const i20_img:Class;
+			[Embed(source="../../assets/Ferramenta/itens/poltrona/poltrona.xml", mimeType = "application/octet-stream")]
+			private static const i20_xml:Class;
+			// poste
+			[Embed(source = "../../assets/Ferramenta/itens/poste/poste.png")]
+			private static const i21_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/poste/poste.xml", mimeType = "application/octet-stream")]
+			private static const i21_xml:Class;
+			//regador
+			[Embed(source = "../../assets/Ferramenta/itens/regador/regador.png")]
+			private static const i22_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/regador/regador.xml", mimeType = "application/octet-stream")]
+			private static const i22_xml:Class;
+			// semaforo
+			[Embed(source = "../../assets/Ferramenta/itens/semaforo/semaforo.png")]
+			private static const i23_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/semaforo/semaforo.xml", mimeType = "application/octet-stream")]
+			private static const i23_xml:Class;
+			//skate
+			[Embed(source = "../../assets/Ferramenta/itens/skate/skate.png")]
+			private static const i24_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/skate/skate.xml", mimeType = "application/octet-stream")]
+			private static const i24_xml:Class;
+			// sorvete
+			[Embed(source = "../../assets/Ferramenta/itens/sorvete/sorvete.png")]
+			private static const i25_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/sorvete/sorvete.xml", mimeType = "application/octet-stream")]
+			private static const i25_xml:Class;
+			//tablet
+			[Embed(source = "../../assets/Ferramenta/itens/tablet/tablet.png")]
+			private static const i26_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/tablet/tablet.xml", mimeType = "application/octet-stream")]
+			private static const i26_xml:Class;
+			// treno
+			[Embed(source="../../assets/Ferramenta/itens/treno/treno.png")]
+			private static const i27_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/treno/treno.xml", mimeType = "application/octet-stream")]
+			private static const i27_xml:Class;
+			// trenzinho
+			[Embed(source = "../../assets/Ferramenta/itens/trenzinho/trem.png")]
+			private static const i28_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/trenzinho/trem.xml", mimeType = "application/octet-stream")]
+			private static const i28_xml:Class;
+			// vaso
+			[Embed(source = "../../assets/Ferramenta/itens/vaso/vaso.png")]
+			private static const i29_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/vaso/vaso.xml", mimeType = "application/octet-stream")]
+			private static const i29_xml:Class;
+			// ventilador
+			[Embed(source = "../../assets/Ferramenta/itens/ventilador/ventilador.png")]
+			private static const i30_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/ventilador/ventilador.xml", mimeType = "application/octet-stream")]
+			private static const i30_xml:Class;
+			//violao
+			[Embed(source = "../../assets/Ferramenta/itens/violão/violao.png")]
+			private static const i31_img:Class;
+			[Embed(source="../../assets/Ferramenta/itens/violão/violao.xml", mimeType = "application/octet-stream")]
+			private static const i31_xml:Class;
+			//os THUMBS dos itens==========================================
+			[Embed(source = "../../assets/Ferramenta/itens/abobora/thumb.png")]
+			private static const ti0_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/bicicleta/thumb.png")]
+			private static const ti1_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/boia_pato/thumb.png")]
+			private static const ti2_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/bola_futebol/thumb.png")]
+			private static const ti3_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/boneco_neve/thumb.png")]
+			private static const ti4_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/cadeira/thumb.png")]
+			private static const ti5_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/cadeira_madeira/thumb.png")]
+			private static const ti6_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/candelabro/thumb.png")]
+			private static const ti7_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/carrinho_mercado/thumb.png")]
+			private static const ti8_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/celular/thumb.png")]
+			private static const ti9_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/computador/thumb.png")]
+			private static const ti10_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/escorregador/thumb.png")]
+			private static const ti11_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/fantasma/thumb.png")]
+			private static const ti12_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/gangorra/thumb.png")]
+			private static const ti13_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/guarda_chuva_aberto/thumb.png")]
+			private static const ti14_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/guarda_chuva_fechado/thumb.png")]
+			private static const ti15_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/mesa_madeira/thumb.png")]
+			private static const ti16_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/mesa_menina/thumb.png")]
+			private static const ti17_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/pa/thumb.png")]
+			private static const ti18_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/pneu/thumb.png")]
+			private static const ti19_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/poltrona/thumb.png")]
+			private static const ti20_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/poste/thumb.png")]
+			private static const ti21_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/regador/thumb.png")]
+			private static const ti22_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/semaforo/thumb.png")]
+			private static const ti23_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/skate/thumb.png")]
+			private static const ti24_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/sorvete/thumb.png")]
+			private static const ti25_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/tablet/thumb.png")]
+			private static const ti26_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/treno/thumb.png")]
+			private static const ti27_img:Class;
+			[Embed(source="../../assets/Ferramenta/itens/trenzinho/thumb.png")]
+			private static const ti28_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/vaso/thumb.png")]
+			private static const ti29_img:Class;
+			[Embed(source = "../../assets/Ferramenta/itens/ventilador/thumb.png")]
+			private static const ti30_img:Class;
+			[Embed(source="../../assets/Ferramenta/itens/violão/thumb.png")]
+			private static const ti31_img:Class;
+			
+		//====PERSONAGENS=======================================================
+			//belinha
+			[Embed(source = "../../assets/Ferramenta/Personagens/Belinha/belinha.png")]
+			private static const p0_img:Class;
+			[Embed(source = "../../assets/Ferramenta/Personagens/Belinha/belinha.xml", mimeType = "application/octet-stream")]
+			private static const p0_xml:Class;
+			[Embed(source = "../../assets/Ferramenta/Personagens/Belinha/belinhaThumb.PNG")]
+			private static const tp0_img:Class;
+			//cadu
+			[Embed(source = "../../assets/Ferramenta/Personagens/Cadu/cadu.png")]
+			private static const p1_img:Class;
+			[Embed(source = "../../assets/Ferramenta/Personagens/Cadu/cadu.xml", mimeType = "application/octet-stream")]
+			private static const p1_xml:Class;
+			[Embed(source = "../../assets/Ferramenta/Personagens/Cadu/caduThumb.PNG")]
+			private static const tp1_img:Class;
+			//chico
+			[Embed(source = "../../assets/Ferramenta/Personagens/Chico/chico.png")]
+			private static const p2_img:Class;
+			[Embed(source = "../../assets/Ferramenta/Personagens/Chico/chico.xml", mimeType = "application/octet-stream")]
+			private static const p2_xml:Class;
+			[Embed(source = "../../assets/Ferramenta/Personagens/Chico/chicoThumb.PNG")]
+			private static const tp2_img:Class;
+			//PfBia
+			[Embed(source = "../../assets/Ferramenta/Personagens/ProfBia/ProfBia.png")]
+			private static const p3_img: Class;
+			[Embed(source = "../../assets/Ferramenta/Personagens/ProfBia/ProfBia.xml", mimeType = "application/octet-stream")]
+			private static const p3_xml:Class;
+			[Embed(source = "../../assets/Ferramenta/Personagens/ProfBia/thumbBia.png")]
+			private static const tp3_img:Class;
+			//Sofia
+			[Embed(source = "../../assets/Ferramenta/Personagens/Sofia/sofia.png")]
+			private static const p4_img:Class;
+			[Embed(source = "../../assets/Ferramenta/Personagens/Sofia/sofia.xml", mimeType = "application/octet-stream")]
+			private static const p4_xml:Class;
+			[Embed(source = "../../assets/Ferramenta/Personagens/Sofia/SofiaThumb.PNG")]
+			private static const tp4_img:Class;
+			
+		//============BALAO========================================================
+			[Embed(source = "../../assets/Ferramenta/balaofala/Fala/balaofala.png")]
+			private static const b0_img:Class;
+			[Embed(source = "../../assets/Ferramenta/balaofala/Fala/balaofaladirecao.png")]
+			private static const bd0_img:Class;
+			[Embed(source = "../../assets/Ferramenta/balaofala/Fala/balaofaladirecaoBack.png")]
+			private static const bdf0_img:Class;
+		//--------------------------------------------------------------------------------------------------------------------------------
 		
 		
 		
@@ -407,7 +683,7 @@ package src_assets
 		//
 		public static function getTexture(_nome:String):Texture
 		{
-			//trace("*****" + _nome + "&&&&");
+			
 			if(dictionaryTexture[_nome] == undefined)
 			{
 				var BMP:Bitmap = new Assets[_nome+"_img"]();
@@ -415,6 +691,16 @@ package src_assets
 				
 			}
 			return dictionaryTexture[_nome];
+		}
+		
+		///
+		public static function getAtlas(_nome:String): TextureAtlas
+		{
+			var TEXTURE:Texture = getTexture(_nome);
+			var XMLs:XML = XML(new Assets[_nome+"_xml"]());
+			dictionaryAtlas[_nome] = new TextureAtlas(TEXTURE, XMLs);
+			
+			return dictionaryAtlas[_nome];
 		}
 		
 	}

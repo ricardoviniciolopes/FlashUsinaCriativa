@@ -54,19 +54,20 @@ package src_telas.itens_deskTop.Itens_menu_esquerdo
 			btn_setaE.addEventListener(Event.TRIGGERED, moveQuadros);
 			var contagem:int = 0;
 			///
-			for (var q:int = 0; q < 11;q++ )
+			for (var q:int = 0; q <5;q++ )
 			{
-				quadro[q] = new Image(Assets.getTexture("popup_balao_quadro"));
-				//thumb[q] = new Image(Assets.getTexture("tf" + q));
+				trace("Q "+q);
+				quadro[q] = new Image(Assets.getTexture("popup_item_quadro"));
+				//thumb[q] = new Image(Assets.getTexture("tp"+q));
 				//thumb[q].scaleX = .9; /**/ thumb[q].scaleY = .9;
 				quadro[q].x = 70 + (80 * q); /*--*/ quadro[q].y = 5;
+				//thumb[q].name = "" + q;
 				//thumb[q].x = quadro[q].x+5; /*-----*/ thumb[q].y = quadro[q].y+5;
-				quadro[q].addEventListener(TouchEvent.TOUCH, adicionaBalao);
-				////
+				quadro[q].addEventListener(TouchEvent.TOUCH,adicionaItem);
 				if ( (quadro[q].x < 70) || (quadro[q].x > 470) )
 				{ 
 					quadro[q].alpha = 0; 
-					//thumb[q].alpha = 0; 
+					thumb[q].alpha = 0; 
 				}
 				addChild(quadro[q]);
 				//addChild(thumb[q]);
@@ -74,24 +75,24 @@ package src_telas.itens_deskTop.Itens_menu_esquerdo
 			addChild(btn_setaD);
 			addChild(btn_setaE);
 		}
-		/////
-		private function adicionaBalao(e:TouchEvent):void 
+		
+		private function adicionaItem(e:TouchEvent):void 
 		{
 			var _toque:Touch = e.getTouch((e.currentTarget) as Image );
 			if(_toque)
 			{
+				
 				if(_toque.phase == TouchPhase.BEGAN) 
 				{
-					var item:Item = new Item(ControleGeral.nomeDoItem,ControleGeral.rotacaoDoItem,ControleGeral.scalexDoItem,ControleGeral.scaleyDoItem,0);
+					//var item:Balao = new ImagemItem(("p" + ((e.currentTarget) as Image ).name), 0, 1, 1, 0, 0);
+					var item:Balao = new Balao();
+					item.name = "b";
 					item.x = 300;
 					item.y = 300;
 					pagina[ControleGeral.currentPagina].quadro[ControleGeral.currentQuadro].addChild(item);
 				}
 			}
 		}
-		
-		
-		/////
 		
 		private function moveQuadros(e:Event):void 
 		{
@@ -102,8 +103,8 @@ package src_telas.itens_deskTop.Itens_menu_esquerdo
 					{
 						if (quadro[0].x<70)
 						{
-							var posFutura:Number= quadro[l].x + 80;
-							if ( (posFutura < 70) || (posFutura > 470) )
+							var PosFutura:Number= quadro[l].x + 80;
+							if ( (PosFutura < 70) || (PosFutura > 470) )
 							{ 
 								TweenLite.to(quadro[l], .05, { alpha:0 } );
 								//TweenLite.to(thumb[l],.05,{alpha:0});

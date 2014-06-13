@@ -26,12 +26,13 @@ package
 		public static var rotacaoDoItem:Number;
 		public static var scalexDoItem:Number;
 		public static var scaleyDoItem:Number;
-		
+		public static var giroItem:Number;
 		
 		public function ControleGeral() 
 		{
 			initValoresEstaticas();
 			initValores();
+			trace(SaveGame.infoObjeto[0].nome);
 		}
 		
 		private function initValoresEstaticas():void 
@@ -42,6 +43,7 @@ package
 			rotacaoDoItem = 0;
 			scalexDoItem = 1;
 			scaleyDoItem = 1;
+			giroItem = 0;
 		}
 		
 		private function initValores():void

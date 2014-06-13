@@ -1,6 +1,8 @@
 package src_telas.itens_deskTop 
 {
 	import flash.printing.PrintJob;
+	import scr_objetos.ImagemItem;
+	import scr_objetos.Item;
 	import src_assets.Assets;
 	import src_telas.itens_deskTop.Itens_menu_esquerdo.PopupBalao;
 	import src_telas.itens_deskTop.Itens_menu_esquerdo.PopupEfeito;
@@ -54,7 +56,7 @@ package src_telas.itens_deskTop
 			//popups
 			popupFundos = new PopupFundos(pagina);
 			popupItem = new PopupItem(pagina);
-			popupPersonagem = new PopupPersonagem();
+			popupPersonagem = new PopupPersonagem(pagina);
 			popupBalao = new PopupBalao(pagina);
 			popupEfeito = new PopupEfeito();
 			//
@@ -83,6 +85,7 @@ package src_telas.itens_deskTop
 			addChild(btn_acao);
 			addChild(chaveOf); /**/ addChild(chaveOn);
 			////add evento
+			btn_copiar.addEventListener(Event.TRIGGERED, copiaItem);
 			chaveOn.addEventListener(Event.TRIGGERED, eventoChave);
 			btn_personagem.addEventListener(Event.TRIGGERED,criaPopupPersonagem);
 			btn_fundo.addEventListener(Event.TRIGGERED, criaPopupFundo);
@@ -90,42 +93,49 @@ package src_telas.itens_deskTop
 			btn_balao.addEventListener(Event.TRIGGERED, criaPopupBalao);
 			btn_acao.addEventListener(Event.TRIGGERED, criaPopupEfeito);
 		}
+		
+		// EVENTO COPIA ITEM
+		private function copiaItem(e:Event):void
+		{
+			var item:ImagemItem = new ImagemItem(ControleGeral.nomeDoItem,ControleGeral.rotacaoDoItem,ControleGeral.scalexDoItem,ControleGeral.scaleyDoItem,0,ControleGeral.giroItem);
+			item.x = 300;
+			item.y = 300;
+			pagina[ControleGeral.currentPagina].quadro[ControleGeral.currentQuadro].addChild(item);
+		}
 		/// cria barra para escolha do fundo
-		function criaPopupPersonagem(e:Event):void
+		private function criaPopupPersonagem(e:Event):void
 		{
 			removePopup();
 			addChild(popupPersonagem);
 		}
 		////cria barra para escolha do fundo
-		function criaPopupFundo(e:Event):void
+		private function criaPopupFundo(e:Event):void
 		{
 			removePopup();
 			addChild(popupFundos);
 		}
 		////cria barra para escolha do item
-		function criaPopupItem(e:Event):void
+		private function criaPopupItem(e:Event):void
 		{
 			removePopup();
 			addChild(popupItem);
 		}
 		////cria barra para escolha do Balao
-		function criaPopupBalao(e:Event):void
+		private function criaPopupBalao(e:Event):void
 		{
 			removePopup();
 			addChild(popupBalao);
-			trace
-			(
-				ControleGeral.nomeDoItem+" Nome "+ControleGeral.rotacaoDoItem+" X "+ControleGeral.scalexDoItem+" Y "+ControleGeral.scaleyDoItem
-			);
 		}
 		////cria barra para escolha do Efeito
-		function criaPopupEfeito(e:Event):void
+		private function criaPopupEfeito(e:Event):void
 		{
+			var save:SaveGame= new SaveGame();
+			save.Save(pagina);
 			removePopup();
 			addChild(popupEfeito);
 		}
 		///REMOVE TODOS OS POPUPS QUE ESTIVEREM EM SENA
-		function removePopup():void
+		private function removePopup():void
 		{
 			if (popupPersonagem) { removeChild(popupPersonagem); }
 			if (popupFundos) { removeChild(popupFundos); }

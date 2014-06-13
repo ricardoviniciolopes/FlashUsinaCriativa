@@ -22,7 +22,7 @@ package src_telas
 		
 		public function DeskTop() 
 		{
-			
+			this.name = "DESKTOP";
 			initValores();
 			defineValores();
 		}
@@ -50,7 +50,9 @@ package src_telas
 				pagina[a].alpha = 0;
 			}
 			pagina[ControleGeral.currentPagina].alpha = 1;
-		
+			setChildIndex(pagina[ControleGeral.currentPagina], numChildren - 2);
+			setChildIndex(menuDireito, numChildren - 1);
+			setChildIndex(menuEsquerdo, numChildren - 1);
 			zeraQuadroSelecionado();
 			
 		}

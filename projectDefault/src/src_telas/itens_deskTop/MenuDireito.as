@@ -73,7 +73,7 @@ package src_telas.itens_deskTop
 					if (this.x == 1082) 
 					{  
 						TweenLite.to(this, .6, { x:1277 , ease:Back.easeInOut } ); 
-						Starling.juggler.delayCall(function() {btn_show.alpha = 1; fundo.alpha = 0.01; }, .5);
+						Starling.juggler.delayCall(function():void{btn_show.alpha = 1; fundo.alpha = 0.01; }, .5);
 						
 					}
 					else if (this.x == 1277) 

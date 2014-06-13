@@ -1,8 +1,9 @@
 package src_telas 
 {
+	import feathers.controls.TextInput;
 	import flash.events.TextEvent;
 	import src_assets.Assets;
-	import src_assets.AssetsItem;
+	import src_telas.itens_deskTop.Itens_menu_esquerdo.Balao;
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -21,7 +22,7 @@ package src_telas
 		private var loadTelaNovo:Function;
 		private var loadTelaRascunho:Function;
 		
-		private var imagemTeste:Image;
+		private var imagemTeste:Vector.<Image>= new Vector.<Image>;
 		
 		public function TelaHome(_loadTelaNovo:Function,_loadTelaRascunhos:Function) 
 		{
@@ -29,9 +30,11 @@ package src_telas
 			loadTelaRascunho = _loadTelaRascunhos;
 			initValores();
 			definePosicao();
-			//imagemTeste= new Image(AssetsItem.getAtlas("b").getTexture("bicicleta_mc instance 10001"));
 			
-			
+			var balao:Balao = new Balao();
+			addChild(balao);
+			balao.x = 300;
+			balao.y = 300;
 		}
 		// atribui valores 
 		private function initValores():void 
